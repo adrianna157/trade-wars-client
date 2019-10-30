@@ -15,3 +15,12 @@ Me plus you (I'ma tell you one time)
 Me plus you (One time, I'ma tell you one time)
 Me plus you (One time, I'ma tell you one time)
 One time (one time) one time
+
+They fell in love one summer
+A little too wild for each other
+Shiny 'til it wasn't
+Feels good 'til it doesn't
+It was her first real lover
+His too 'til he had another
+Oh, God, when she found out
+Trust levels went way down
