@@ -41,4 +41,4 @@ Helping all ya girls
 Everywhere that you go
 All around the world
 Join us now and
-Have yourself a very merry
+Have yourself a very merry.
