@@ -30,3 +30,15 @@ Why do I still write?
 Sometimes it's hard enough just dealing with real life
 Sometimes I want to jump on stage and just kill mics
 And show these people what my level of skill's like
+
+Let's deck the halls with spots of Cheetah
+Let's have some Christmas fun! Yea
+If you wanna be, oh, a Christmas Cheetah
+We can show you how it's done!
+You be gotta be good
+Cause Santa Clause knows
+Helping all ya girls
+Everywhere that you go
+All around the world
+Join us now and
+Have yourself a very merry
