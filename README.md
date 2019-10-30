@@ -45,3 +45,14 @@ Everywhere that you go
 All around the world
 Join us now and
 Have yourself a very merry
+
+Me and Neil saw a UFO when we were in our early twenties
+It appeared from the South, flew right over my parents' house
+We'd been to an Oriental buffet
+All we had had to drink was Dr. Pepper
+Neil was dropping me off
+We were just saying our farewells
+Suddenly he yelled, "What's that?"
+Then dusk fell quiet
+As the dark shape glided
+Off beyond the lamps of Aldi car park
