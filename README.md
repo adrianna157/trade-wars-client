@@ -10,15 +10,8 @@ I'm locked up on the button
 Can't you do it sometime?
 Pushed it in too far, oh
 
-Let's have some fun,
-This beat is sick
-I wanna take a ride on your disco stick
-
-I wanna kiss you
-But if I do then I might miss you babe
-It's complicated and stupid
-Got my ass squeezed by sexy Cupid
-Guess he wants to play,
-Wants to play
-A love game
-A love game
+Aye, aye, aye, aye, aye, aye, aye, aye
+Me plus you (I'ma tell you one time)
+Me plus you (One time, I'ma tell you one time)
+Me plus you (One time, I'ma tell you one time)
+One time (one time) one time
