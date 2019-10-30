@@ -24,3 +24,9 @@ It was her first real lover
 His too 'til he had another
 Oh, God, when she found out
 Trust levels went way down
+
+Why do I put up this fight?
+Why do I still write?
+Sometimes it's hard enough just dealing with real life
+Sometimes I want to jump on stage and just kill mics
+And show these people what my level of skill's like
