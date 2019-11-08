@@ -5,15 +5,52 @@
 <html>
 <head>
 <style>
-body {background-color: rgb(112, 29, 144);}
+div{
+    background-color: lightgrey;
+    width: 100px;
+    border: 15px solid green;
+    padding: 250px;
+    margin: 20px;
+} 
+#absolute {
+  width: 25px;
+  height: 5px;
+  background-color: #FFD7C2;
+  position: absolute;
+  padding: 35px;
+  top: 100px;
+  right: 100px;
+}
+#cargo {
+  width: 25px;
+  height: 200px;
+  background-color: #FFD7C2;
+  position: absolute;
+  padding: 100px;
+  bottom: 20px;
+  right: 100px;
+}
 h1   {color: rgb(37, 187, 23);}
 p    {color: rgb(238, 255, 0);}
+p1   {color: rgb(238, 255, 0);}
+
+
 </style>
 </head>
-<body>
+<body background="https://wallpaperaccess.com/full/399198.jpg">
 
 <h1>Trade Wars</h1>
-<p>Status: </p>
+<p align="middle"> Status: </p>
+
+<div>This is where the grid will go</div>
+<div id="absolute">
+    Space Bucks: 
+</div>
+<div id="cargo">
+    Current Cargo: 
+</div>
+
+
 
 </body>
 </html>
