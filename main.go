@@ -25,15 +25,30 @@ func showChatScreen(w http.ResponseWriter, r *http.Request) {
     w.Write([]byte("Chat Screen!"))
 }
 
+// Add a showSnippet handler function.
+func showSnippet(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("This is the snippet"))
+}
+
+// Add a createSnippet handler function.
+func createSnippet(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("creates new snippit"))
+}
+
 func main() {
 	// Use the http.NewServeMux() function to initialize a new servemux, then
 	// register the home function as the handler for the "/" URL pattern.
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", home)
+<<<<<<< HEAD
 	mux.HandleFunc("/navigation", showNavigationScreen)
     mux.HandleFunc("/navigation/trade", showTradeScreen)
     mux.HandleFunc("/naivigation/trade/chat", showChatScreen)
 
+=======
+	mux.HandleFunc("/snippet", showSnippet)
+	mux.HandleFunc("/snippet/create", createSnippet)
+>>>>>>> f7a8fe35d0e549299fd67a46fcda71ea28d74bf2
 
 	// Use the http.ListenAndServe() function to start a new web server. We pass in
 	// two parameters: the TCP network address to listen on (in this case ":4000")
