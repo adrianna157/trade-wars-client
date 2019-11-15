@@ -8,7 +8,21 @@ import (
 // Define a home handler function which writes a byte slice containing
 // "Hello from Snippetbox" as the response body.
 func home(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("test test test"))
+	w.Write([]byte("Welcome Screen!"))
+}
+
+func showNavigationScreen(w http.ResponseWriter, r *http.Request) {
+    w.Write([]byte("Navigation Screen"))
+}
+
+// Add a showSnippet handler function.
+func showTradeScreen(w http.ResponseWriter, r *http.Request) {
+    w.Write([]byte("Trade Screen!"))
+}
+
+// Add a createSnippet handler function.
+func showChatScreen(w http.ResponseWriter, r *http.Request) {
+    w.Write([]byte("Chat Screen!"))
 }
 
 func main() {
@@ -16,6 +30,10 @@ func main() {
 	// register the home function as the handler for the "/" URL pattern.
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", home)
+	mux.HandleFunc("/navigation", showNavigationScreen)
+    mux.HandleFunc("/navigation/trade", showTradeScreen)
+    mux.HandleFunc("/naivigation/trade/chat", showChatScreen)
+
 
 	// Use the http.ListenAndServe() function to start a new web server. We pass in
 	// two parameters: the TCP network address to listen on (in this case ":4000")
