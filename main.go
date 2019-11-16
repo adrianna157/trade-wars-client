@@ -1,28 +1,36 @@
 package main
 
 import (
+	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 )
+
+func fileToByte(fileName string) (bytes []byte) {
+	file, _ := os.Open(fileName)
+	bytes, _ = ioutil.ReadAll(file)
+	return
+}
 
 // Define a home handler function which writes a byte slice containing
 // "Hello from Snippetbox" as the response body.
 func home(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Welcome Screen!"))
+	w.Write([]byte(fileToByte("welcome-screen.html")))
 }
 
 func showNavigationScreen(w http.ResponseWriter, r *http.Request) {
-    w.Write([]byte("Navigation Screen"))
+	w.Write([]byte(fileToByte("navigation-screen.html")))
 }
 
 // Add a showSnippet handler function.
 func showTradeScreen(w http.ResponseWriter, r *http.Request) {
-    w.Write([]byte("Trade Screen!"))
+	w.Write([]byte(fileToByte("trade-screen.html")))
 }
 
 // Add a createSnippet handler function.
 func showChatScreen(w http.ResponseWriter, r *http.Request) {
-    w.Write([]byte("Chat Screen!"))
+	w.Write([]byte(fileToByte("chat-screen.html")))
 }
 
 // Add a showSnippet handler function.
@@ -40,15 +48,12 @@ func main() {
 	// register the home function as the handler for the "/" URL pattern.
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", home)
-<<<<<<< HEAD
 	mux.HandleFunc("/navigation", showNavigationScreen)
-    mux.HandleFunc("/navigation/trade", showTradeScreen)
-    mux.HandleFunc("/naivigation/trade/chat", showChatScreen)
+	mux.HandleFunc("/navigation/trade", showTradeScreen)
+	mux.HandleFunc("/naivigation/trade/chat", showChatScreen)
 
-=======
 	mux.HandleFunc("/snippet", showSnippet)
 	mux.HandleFunc("/snippet/create", createSnippet)
->>>>>>> f7a8fe35d0e549299fd67a46fcda71ea28d74bf2
 
 	// Use the http.ListenAndServe() function to start a new web server. We pass in
 	// two parameters: the TCP network address to listen on (in this case ":4000")
