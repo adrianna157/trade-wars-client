@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+{{template "base" .}}
 
 <style>
     h1{
@@ -19,10 +18,8 @@
     
 </style>
 
-<head>
-    <title>Welcome Screen👽</title>
-</head>
-
+{{define "title"}}Welcome Screen👽{{end}}
+{{define "main"}}
 <body background="http://getwallpapers.com/wallpaper/full/7/f/e/1254668-large-desktop-space-backgrounds-1920x1200.jpg">
     <center>
         <h1>Welcome to <br><b> TRADE WARS</b></h1>
@@ -35,4 +32,4 @@
     </center>
 </body>
 
-</html>
+{{end}}
