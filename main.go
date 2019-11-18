@@ -10,7 +10,7 @@ import (
 func fileToByte(fileName string) (bytes []byte) {
 	file, _ := os.Open(fileName)
 	bytes, _ = ioutil.ReadAll(file)
-	return
+	returned
 }
 
 // Define a home handler function which writes a byte slice containing
