@@ -1,33 +1,18 @@
 {{template "base" .}}
 
-<style>
-    h1{
-        color: crimson;
-        font-size: 100px;
-    }
-    p{
-        color: rgb(0, 255, 106);
-        font-size: 50px;
-    }
-    input{
-        font-size: 50px;
-    }
-    button{
-        font-size: 50px;
-    }
-    
-</style>
-
-{{define "title"}}Welcome Screen👽{{end}}
+{{define "title"}}Welcome Screen{{end}}
 {{define "main"}}
-<body background="http://getwallpapers.com/wallpaper/full/7/f/e/1254668-large-desktop-space-backgrounds-1920x1200.jpg">
+<!-- <body background="http://getwallpapers.com/wallpaper/full/7/f/e/1254668-large-desktop-space-backgrounds-1920x1200.jpg">
+ -->
     <center>
         <h1>Welcome to <br><b> TRADE WARS</b></h1>
         <p>
             <label>Enter your name:</label>
-            <input type = "Name"
-                    id = "name" />
-                    <a href="navigation-screen.html"><button type="button">Enter</button></a>
+            <form action="snippet?" method="POST">
+            <input type = "text"
+                    id = "getName" />
+                    <button type="button">Enter</button>
+            </form>
         </p>
     </center>
 </body>
