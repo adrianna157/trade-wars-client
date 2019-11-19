@@ -5,9 +5,15 @@ import (
 	"net/http"
 )
 
+func redirect(w http.ResponseWriter, r *http.Request){
+	http.Redirect(w, r, "http://localhost:4000/",301)
+}
 func main() {
+	http.HandleFunc("/", redirect)
+	
 	// Use the http.NewServeMux() function to initialize a new servemux, then
 	// register the home function as the handler for the "/" URL pattern.
+	
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", players)
 	mux.HandleFunc("/navigation", showNavigationScreen)
