@@ -16,14 +16,9 @@ func fileToByte(fileName string) (bytes []byte) {
 	return
 }
 
-func players(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/" {
-		http.NotFound(w, r)
-		return
-	}
-
+func displayTemplateFile(w http.ResponseWriter, r *http.Request, pathToFile string) {
 	files := []string{
-		"./ui/html/welcome-screen.tmpl",
+		pathToFile,
 		"./ui/html/base.layout.tmpl",
 		"./ui/html/footer.partial.tmpl",
 	}
@@ -46,6 +41,28 @@ func players(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println(err.Error())
 		http.Error(w, "Internal Server Error", 500)
+	}
+}
+
+func players(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/" {
+		http.NotFound(w, r)
+		return
+	}
+
+	switch r.Method {
+	case "GET":
+		displayTemplateFile(w, r, "./ui/html/welcome-screen.tmpl")
+	case "POST":
+		// Call ParseForm() to parse the raw query and update r.PostForm and r.Form.
+		if err := r.ParseForm(); err != nil {
+			fmt.Fprintf(w, "ParseForm() err: %v", err)
+			return
+		}
+		handler := r.FormValue("handler")
+		fmt.Fprintf(w, "Handler = %s\n", handler)
+	default:
+		fmt.Fprintf(w, "Sorry, only GET and POST methods are supported.")
 	}
 }
 
