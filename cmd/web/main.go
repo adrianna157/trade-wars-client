@@ -5,23 +5,23 @@ import (
 	"net/http"
 )
 
-func redirect(w http.ResponseWriter, r *http.Request){
-	http.Redirect(w, r, "http://localhost:4000/",301)
+func redirect(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "http://localhost:4000", 301)
 }
 func main() {
 	http.HandleFunc("/", redirect)
-	
+
 	// Use the http.NewServeMux() function to initialize a new servemux, then
 	// register the home function as the handler for the "/" URL pattern.
-	
+
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", players)
 	mux.HandleFunc("/navigation", showNavigationScreen)
 	mux.HandleFunc("/navigation/trade", showTradeScreen)
 	mux.HandleFunc("/navigation/chat", showChatScreen)
 	mux.HandleFunc("/snippet/create", createSnippet)
-	mux.HandleFunc("/snippet", showSnippet)
 
+	mux.HandleFunc("/snippet", showSnippet)
 	// Create a file server which serves files out of the "./ui/static" directory.
 	// Note that the path given to the http.Dir function is relative to the project
 	// directory root.

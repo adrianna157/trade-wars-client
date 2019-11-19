@@ -54,7 +54,6 @@ func players(w http.ResponseWriter, r *http.Request) {
 	case "GET":
 		displayTemplateFile(w, r, "./ui/html/welcome-screen.tmpl")
 	case "POST":
-		// Call ParseForm() to parse the raw query and update r.PostForm and r.Form.
 		if err := r.ParseForm(); err != nil {
 			fmt.Fprintf(w, "ParseForm() err: %v", err)
 			return
