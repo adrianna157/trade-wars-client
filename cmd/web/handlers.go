@@ -67,17 +67,17 @@ func players(w http.ResponseWriter, r *http.Request) {
 }
 
 func showNavigationScreen(w http.ResponseWriter, r *http.Request) {
-	displayTemplateFile(w, r, "./ui/html/navigation-screen.html")
+	displayTemplateFile(w, r, "./ui/html/navigation-screen.tmpl")
 }
 
 // Add a showSnippet handler function.
 func showTradeScreen(w http.ResponseWriter, r *http.Request) {
-	displayTemplateFile(w, r, "./ui/html/trade-screen.html")
+	displayTemplateFile(w, r, "./ui/html/trade-screen.tmpl")
 }
 
 // Add a createSnippet handler function.
 func showChatScreen(w http.ResponseWriter, r *http.Request) {
-	displayTemplateFile(w, r, "./ui/html/chat-screen.html")
+	displayTemplateFile(w, r, "./ui/html/chat-screen.tmpl")
 }
 
 // Add a showSnippet handler function.
