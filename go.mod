@@ -1,3 +1,3 @@
-module github.com/adrianna157/trade_wars_client
+module github.com/MaxTheMitchell/trade-wars-client
 
 go 1.13
