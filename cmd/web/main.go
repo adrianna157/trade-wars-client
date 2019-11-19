@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 )
 
 func redirect(w http.ResponseWriter, r *http.Request) {
@@ -40,6 +41,6 @@ func main() {
 	// we use the log.Fatal() function to log the error message and exit. Note
 	// that any error returned by http.ListenAndServe() is always non-nil.
 	log.Println("Starting server on :4000")
-	err := http.ListenAndServe(":4000", mux)
+	err := http.ListenAndServe(":"+os.Getenv("PORT"), mux)
 	log.Fatal(err)
 }
