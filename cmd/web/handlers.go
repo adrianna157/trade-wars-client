@@ -45,7 +45,7 @@ func displayTemplateFile(w http.ResponseWriter, r *http.Request, pathToFile stri
 }
 
 func players(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/" {
+	if r.URL.Path != "/players" {
 		http.NotFound(w, r)
 		return
 	}

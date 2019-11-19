@@ -6,8 +6,9 @@ import (
 )
 
 func redirect(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "http://localhost:4000", 301)
+	http.Redirect(w, r, "http://localhost:4000/players", 301)
 }
+
 func main() {
 	http.HandleFunc("/", redirect)
 
@@ -15,7 +16,8 @@ func main() {
 	// register the home function as the handler for the "/" URL pattern.
 
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", players)
+	mux.HandleFunc("/players", players)
+	mux.HandleFunc("/", redirect)
 	mux.HandleFunc("/navigation", showNavigationScreen)
 	mux.HandleFunc("/navigation/trade", showTradeScreen)
 	mux.HandleFunc("/navigation/chat", showChatScreen)
