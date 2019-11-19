@@ -18,9 +18,9 @@ func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/players", players)
 	mux.HandleFunc("/", redirect)
-	mux.HandleFunc("/navigation", showNavigationScreen)
-	mux.HandleFunc("/navigation/trade", showTradeScreen)
-	mux.HandleFunc("/navigation/chat", showChatScreen)
+	mux.HandleFunc("/map", showNavigationScreen)
+	mux.HandleFunc("/map/trade", showTradeScreen)
+	mux.HandleFunc("/map/chat", showChatScreen)
 	mux.HandleFunc("/snippet/create", createSnippet)
 
 	mux.HandleFunc("/snippet", showSnippet)
