@@ -1,1 +1,1 @@
-web: /bin/gocode-gomod
+web: ./bin
