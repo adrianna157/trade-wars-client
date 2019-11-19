@@ -1,5 +1,4 @@
 package main
-
 import (
 	"fmt"
 	"io/ioutil"
@@ -9,7 +8,6 @@ import (
 	"strconv"
 	"text/template"
 )
-
 func fileToByte(fileName string) (bytes []byte) {
 	file, _ := os.Open(fileName)
 	bytes, _ = ioutil.ReadAll(file)
@@ -17,12 +15,11 @@ func fileToByte(fileName string) (bytes []byte) {
 }
 
 func displayTemplateFile(w http.ResponseWriter, r *http.Request, pathToFile string) {
-	files := []string{
+	files := []string{		
 		pathToFile,
 		"./ui/html/base.layout.tmpl",
 		"./ui/html/footer.partial.tmpl",
 	}
-
 	// Use the template.ParseFiles() function to read the template file into a
 	// template set. If there's an error, we log the detailed error message and use
 	// the http.Error() function to send a generic 500 Internal Server Error
@@ -33,7 +30,6 @@ func displayTemplateFile(w http.ResponseWriter, r *http.Request, pathToFile stri
 		http.Error(w, "Internal Server Error", 500)
 		return
 	}
-
 	// We then use the Execute() method on the template set to write the template
 	// content as the response body. The last parameter to Execute() represents any
 	// dynamic data that we want to pass in, which for now we'll leave as nil.
@@ -54,6 +50,7 @@ func players(w http.ResponseWriter, r *http.Request) {
 	case "GET":
 		displayTemplateFile(w, r, "./ui/html/welcome-screen.tmpl")
 	case "POST":
+		// Call ParseForm() to parse the raw query and update r.PostForm and r.Form.
 		if err := r.ParseForm(); err != nil {
 			fmt.Fprintf(w, "ParseForm() err: %v", err)
 			return
