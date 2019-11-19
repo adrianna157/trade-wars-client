@@ -16,14 +16,9 @@ func fileToByte(fileName string) (bytes []byte) {
 	return
 }
 
-func players(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/" {
-		http.NotFound(w, r)
-		return
-	}
-
+func displayTemplateFile(w http.ResponseWriter, r *http.Request, pathToFile string) {
 	files := []string{
-		"./ui/html/welcome-screen.tmpl",
+		pathToFile,
 		"./ui/html/base.layout.tmpl",
 		"./ui/html/footer.partial.tmpl",
 	}
@@ -49,18 +44,40 @@ func players(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func players(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/" {
+		http.NotFound(w, r)
+		return
+	}
+
+	switch r.Method {
+	case "GET":
+		displayTemplateFile(w, r, "./ui/html/welcome-screen.tmpl")
+	case "POST":
+		// Call ParseForm() to parse the raw query and update r.PostForm and r.Form.
+		if err := r.ParseForm(); err != nil {
+			fmt.Fprintf(w, "ParseForm() err: %v", err)
+			return
+		}
+		handler := r.FormValue("handler")
+		fmt.Fprintf(w, "Handler = %s\n", handler)
+	default:
+		fmt.Fprintf(w, "Sorry, only GET and POST methods are supported.")
+	}
+}
+
 func showNavigationScreen(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte(fileToByte("navigation-screen.html")))
+	displayTemplateFile(w, r, "./ui/html/navigation-screen.tmpl")
 }
 
 // Add a showSnippet handler function.
 func showTradeScreen(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte(fileToByte("trade-screen.html")))
+	displayTemplateFile(w, r, "./ui/html/trade-screen.tmpl")
 }
 
 // Add a createSnippet handler function.
 func showChatScreen(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte(fileToByte("chat-screen.html")))
+	displayTemplateFile(w, r, "./ui/html/chat-screen.tmpl")
 }
 
 // Add a showSnippet handler function.

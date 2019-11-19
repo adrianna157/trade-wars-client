@@ -18,7 +18,7 @@ func main() {
 	mux.HandleFunc("/", players)
 	mux.HandleFunc("/navigation", showNavigationScreen)
 	mux.HandleFunc("/navigation/trade", showTradeScreen)
-	mux.HandleFunc("/naivigation/trade/chat", showChatScreen)
+	mux.HandleFunc("/navigation/chat", showChatScreen)
 	mux.HandleFunc("/snippet/create", createSnippet)
 	mux.HandleFunc("/snippet", showSnippet)
 
