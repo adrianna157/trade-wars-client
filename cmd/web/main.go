@@ -7,7 +7,7 @@ import (
 )
 
 func redirect(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "http://localhost:4000/players", 301)
+	http.Redirect(w, r, "http://localhost:ex4000/players", 301)
 }
 
 func main() {
