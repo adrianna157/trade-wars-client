@@ -19,10 +19,7 @@ func getPort() string {
 }
 
 func main() {
-	port, ok := os.LookupEnv("Port")
-	if ok == false {
-		port = "4000"
-	}
+	
 	
 	// Use the http.NewServeMux() function to initialize a new servemux, then
 	// register the home function as the handler for the "/" URL pattern.
@@ -52,6 +49,10 @@ func main() {
 	// we use the log.Fatal() function to log the error message and exit. Note
 	// that any error returned by http.ListenAndServe() is always non-nil.
 	log.Println("Starting server on " + getPort())
+	port, ok := os.LookupEnv("Port")
 	err := http.ListenAndServe(":"+port, mux)
+	if ok == false {
+		port = "4000"
+	}
 	log.Fatal(err)
 }
