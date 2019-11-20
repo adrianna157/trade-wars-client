@@ -6,9 +6,9 @@ import (
 	"os"
 )
 
-func redirect(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "http://localhost:"+getPort()+"/players", 301)
-}
+// func redirect(w http.ResponseWriter, r *http.Request) {
+// 	http.Redirect(w, r, "http://localhost:"+getPort()+"/players", 301)
+// }
 
 func getPort() string {
 	port := os.Getenv("PORT")
@@ -25,7 +25,7 @@ func main() {
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/players", players)
-	mux.HandleFunc("/", redirect)
+	// mux.HandleFunc("/", redirect)
 	mux.HandleFunc("/map", showNavigationScreen)
 	mux.HandleFunc("/map/trade", showTradeScreen)
 	mux.HandleFunc("/map/chat", showChatScreen)
