@@ -1,1 +1,1 @@
-web: ./bin
+web: bin/trade-wars-client

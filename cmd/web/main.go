@@ -1,17 +1,24 @@
 package main
 
-
 import (
 	"log"
 	"net/http"
+	"os"
 )
 
 func redirect(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "http://localhost:ex4000/players", 301)
+	http.Redirect(w, r, ":"+getPort()+"/players", 301)
+}
+
+func getPort() string {
+	port := os.Getenv("PORT")
+	if port == "" {
+		return "4000"
+	}
+	return port
 }
 
 func main() {
-	http.HandleFunc("/", redirect)
 
 	// Use the http.NewServeMux() function to initialize a new servemux, then
 	// register the home function as the handler for the "/" URL pattern.
@@ -40,7 +47,7 @@ func main() {
 	// and the servemux we just created. If http.ListenAndServe() returns an error
 	// we use the log.Fatal() function to log the error message and exit. Note
 	// that any error returned by http.ListenAndServe() is always non-nil.
-	log.Println("Starting server on :5000")
-	err := http.ListenAndServe(":5000", mux)
+	log.Println("Starting server on " + getPort())
+	err := http.ListenAndServe(":"+getPort(), mux)
 	log.Fatal(err)
 }
