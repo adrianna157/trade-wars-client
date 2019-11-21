@@ -1,1 +1,0 @@
-web: bin/trade-wars-client
