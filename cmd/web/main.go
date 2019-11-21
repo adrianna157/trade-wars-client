@@ -4,6 +4,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"/Users/adriannaguevarra/Desktop/Projects/trade-wars-client"
+
 )
 
 func redirect(w http.ResponseWriter, r *http.Request) {
