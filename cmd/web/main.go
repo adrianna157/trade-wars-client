@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-	// "/Users/adriannaguevarra/Desktop/Projects/trade-wars-client"
+	"github.com/adrianna157/trade-wars-client"
 
 )
 
@@ -51,7 +51,8 @@ func main() {
 	// we use the log.Fatal() function to log the error message and exit. Note
 	// that any error returned by http.ListenAndServe() is always non-nil.
 	log.Println("Starting server on " + getPort())
-	port, ok := os.LookupEnv("Port")
+	
+	port, ok := os.Getenv("Port")
 	err := http.ListenAndServe(":"+port, mux)
 	if ok == false {
 		port = "4000"
