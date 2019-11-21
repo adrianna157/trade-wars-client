@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"/Users/adriannaguevarra/Desktop/Projects/trade-wars-client"
+	// "/Users/adriannaguevarra/Desktop/Projects/trade-wars-client"
 
 )
 
