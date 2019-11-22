@@ -15,6 +15,7 @@ func getPort() string {
 }
 
 func main() {
+	testFakeShip()
 
 	port := getPort()
 	mux := http.NewServeMux()
