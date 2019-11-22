@@ -61,6 +61,10 @@ func showChatScreen(w http.ResponseWriter, r *http.Request) {
 	displayTemplateFile(w, r, "./ui/html/chat-screen.tmpl")
 }
 
+func ws(w http.ResponseWriter, r *http.Request) {
+	displayTemplateFile(w, r, "./ui/html/chat-room.tmpl")
+}
+
 func redirect(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/players", 301)
 }
