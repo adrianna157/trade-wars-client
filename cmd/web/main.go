@@ -7,7 +7,7 @@ import (
 )
 
 func redirect(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, ":"+getPort()+"/players", 301)
+	http.Redirect(w, r, "/players", 301)
 }
 
 func getPort() string {
