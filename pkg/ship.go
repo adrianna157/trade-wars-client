@@ -9,14 +9,16 @@ func (ship Ship) AddCargo(item Cargo) {
 	ship.Cargo = append(ship.Cargo, item)
 }
 
-func (ship Ship) RemoveCargo(item Cargo) {
+func (ship Ship) RemoveCargo(item string) {
 	index := findCargoIndex(item, ship.Cargo)
-	ship.Cargo = append(ship.Cargo[:index], ship.Cargo[index+1:]...)
+	if index > -1 {
+		ship.Cargo = ship.Cargo[:index+copy(ship.Cargo[index:], ship.Cargo[index+1:])]
+	}
 }
 
-func findCargoIndex(item Cargo, cargo []Cargo) int {
+func findCargoIndex(item string, cargo []Cargo) int {
 	for i, c := range cargo {
-		if item == c {
+		if item == c.Name {
 			return i
 		}
 	}

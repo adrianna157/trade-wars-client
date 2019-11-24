@@ -15,4 +15,7 @@ func testFakeShip() {
 	println(shipFake.GetInfo())
 	shipFake.AddCargo(pkg.Cargo{Name: "CoCo", Price: 8})
 	println(shipFake.GetInfo())
+	shipFake.RemoveCargo("cheese")
+	shipFake.RemoveCargo("foo")
+	println(shipFake.GetInfo())
 }

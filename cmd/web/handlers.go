@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"text/template"
+	"time"
 )
 
 func displayTemplateFile(w http.ResponseWriter, r *http.Request, pathToFile string) {
@@ -42,15 +43,39 @@ func players(w http.ResponseWriter, r *http.Request) {
 			fmt.Fprintf(w, "ParseForm() err: %v", err)
 			return
 		}
-		handler := r.FormValue("handler")
-		fmt.Fprintf(w, "Handler = %s\n", handler)
+		callSign := r.FormValue("callSign")
+		cookie := http.Cookie{
+			Name:    "callSign",
+			Value:   callSign,
+			Expires: time.Now().AddDate(0, 0, 1),
+			Path:    "/",
+		}
+		http.SetCookie(w, &cookie)
+		http.Redirect(w, r, "/map", http.StatusSeeOther)
+		fmt.Fprintf(w, "Call sign = %s\n", callSign)
+
 	default:
 		fmt.Fprintf(w, "Sorry, only GET and POST methods are supported.")
 	}
 }
 
-func showNavigationScreen(w http.ResponseWriter, r *http.Request) {
-	displayTemplateFile(w, r, "./ui/html/navigation-screen.tmpl")
+func showMapScreen(w http.ResponseWriter, r *http.Request) {
+	var cookie, err = r.Cookie("callSign")
+	if err != nil {
+		log.Println(err.Error())
+		http.Error(w, "No call sign obtained from cookie", 500)
+		return
+	}
+	switch r.Method {
+	case "GET":
+		displayTemplateFile(w, r, "./ui/html/navigation-screen.tmpl")
+	case "POST":
+		callSign := cookie.Value
+		log.Println(callSign)
+		w.Write([]byte(callSign))
+		fmt.Fprintf(w, "Call sign = %s\n", callSign)
+	}
+
 }
 
 func showTradeScreen(w http.ResponseWriter, r *http.Request) {

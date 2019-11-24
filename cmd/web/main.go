@@ -15,28 +15,14 @@ func getPort() string {
 }
 
 func main() {
-	testFakeShip()
-
-	// // Start the server on localhost port 8000 and log any errors
-	// log.Println("http server started on :8000")
-	// err := http.ListenAndServe(":8000", nil)
-	// if err != nil {
-	// 	log.Fatal("ListenAndServe: ", err)
-	// }
-
-	// // Start the server on localhost port 8000 and log any errors
-	// log.Println("http server started on :8000")
-	// err := http.ListenAndServe(":8000", nil)
-	// if err != nil {
-	// 		log.Fatal("ListenAndServe: ", err)
-	//   }
+	// testFakeShip()
 
 	port := getPort()
 	mux := http.NewServeMux()
 	fileServer := http.FileServer(http.Dir("./ui/static/"))
 	mux.HandleFunc("/players", players)
 	mux.HandleFunc("/", redirect)
-	mux.HandleFunc("/map", showNavigationScreen)
+	mux.HandleFunc("/map", showMapScreen)
 	mux.HandleFunc("/map/trade", showTradeScreen)
 	mux.HandleFunc("/map/chat", showChatScreen)
 	// Configure websocket route
