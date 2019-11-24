@@ -73,7 +73,6 @@ func showMapScreen(w http.ResponseWriter, r *http.Request) {
 		callSign := cookie.Value
 		log.Println(callSign)
 		w.Write([]byte(callSign))
-		fmt.Fprintf(w, "Call sign = %s\n", callSign)
 	}
 
 }
@@ -92,4 +91,29 @@ func ws(w http.ResponseWriter, r *http.Request) {
 
 func redirect(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/players", 301)
+}
+
+func moveLeft(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "Get" {
+		var cookie, err = r.Cookie("callSign")
+		if err != nil {
+			log.Println(err.Error())
+			http.Error(w, "No call sign obtained from cookie", 500)
+			return
+		}
+		callSign := cookie.Value
+		log.Println(callSign)
+	}
+}
+func moveRight(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "Get" {
+		var cookie, err = r.Cookie("callSign")
+		if err != nil {
+			log.Println(err.Error())
+			http.Error(w, "No call sign obtained from cookie", 500)
+			return
+		}
+		callSign := cookie.Value
+		log.Println(callSign)
+	}
 }
