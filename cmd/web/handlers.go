@@ -37,7 +37,7 @@ func players(w http.ResponseWriter, r *http.Request) {
 
 	switch r.Method {
 	case "GET":
-		displayTemplateFile(w, r, "./ui/html/welcome-screen.tmpl")
+		displayTemplateFile(w, r, "./ui/html/welcome-screen.html")
 	case "POST":
 		if err := r.ParseForm(); err != nil {
 			fmt.Fprintf(w, "ParseForm() err: %v", err)
@@ -68,7 +68,7 @@ func showMapScreen(w http.ResponseWriter, r *http.Request) {
 	}
 	switch r.Method {
 	case "GET":
-		displayTemplateFile(w, r, "./ui/html/navigation-screen.tmpl")
+		displayTemplateFile(w, r, "./ui/html/navigation-screen.html")
 	case "POST":
 		callSign := cookie.Value
 		log.Println(callSign)
@@ -78,15 +78,15 @@ func showMapScreen(w http.ResponseWriter, r *http.Request) {
 }
 
 func showTradeScreen(w http.ResponseWriter, r *http.Request) {
-	displayTemplateFile(w, r, "./ui/html/trade-screen.tmpl")
+	displayTemplateFile(w, r, "./ui/html/trade-screen.html")
 }
 
 func showChatScreen(w http.ResponseWriter, r *http.Request) {
-	displayTemplateFile(w, r, "./ui/html/chat-screen.tmpl")
+	displayTemplateFile(w, r, "./ui/html/chat-screen.html")
 }
 
 func ws(w http.ResponseWriter, r *http.Request) {
-	displayTemplateFile(w, r, "./ui/html/chat-room.tmpl")
+	displayTemplateFile(w, r, "./ui/html/chat-room.html")
 }
 
 func redirect(w http.ResponseWriter, r *http.Request) {
