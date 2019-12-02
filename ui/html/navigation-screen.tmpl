@@ -63,8 +63,12 @@ p1   {color: rgb(238, 255, 0);}
 <div id="cargo">
     Current Cargo: 
 </div>
-<a href="chat-screen.html"><button type="button">Go to Chat</button></a>
-<a href="trade-screen.html"><button type="button">Go to Trade</button></a>
+<form action="/map/chat" method="GET">
+  <input type="submit" value="go to chat" />
+</form>
+<form action="/map/trade" method="GET">
+  <input type="submit" value="go to trade" />
+</form>
 
 <script>
   function getCookie(cname) {
