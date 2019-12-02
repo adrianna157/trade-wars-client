@@ -18,6 +18,7 @@ func main() {
 	// testFakeShip()
 
 	port := getPort()
+	// port := os.Getenv("PORT")
 	mux := http.NewServeMux()
 	fileServer := http.FileServer(http.Dir("./ui/static/"))
 	mux.HandleFunc("/players", players)
