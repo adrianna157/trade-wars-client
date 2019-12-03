@@ -6,6 +6,7 @@
 <head>
 <style>
 div{
+    position: relative;
     width: 500px;
     height: 500px;
     border: 15px solid green;
@@ -29,8 +30,17 @@ div{
   bottom: 20px;
   right: 100px;
 }
+#ship{
+  position: absolute;
+  display: block;
+     width: 20%;
+     height:20%;
+     top: 0%;
+     left: 0%;
+}
 
 div img {
+    position: relative;
     display: block;
      width: 100%;
      height:100%;
@@ -55,6 +65,7 @@ p1   {color: rgb(238, 255, 0);}
 
 <div>
   <img src="../static/img/starMap.jpg" alt="starMap"/>
+  <img id="ship" src="../static/img/ship.png" alt="ship"/>
 </div>
 
 <div id="absolute">
@@ -72,21 +83,22 @@ p1   {color: rgb(238, 255, 0);}
 
 <script>
   function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-}
-document.getElementById("callSign").innerHTML = "Your call sign is: "+getCookie("callSign");
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for(var i = 0; i <ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+  document.getElementById("callSign").innerHTML = "Your call sign is: "+getCookie("callSign");
+  // document.getElementById("callSign").innerHTML = src="../static/img/ship.png";
 </script>
 
 
