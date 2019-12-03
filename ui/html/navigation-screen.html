@@ -35,8 +35,6 @@ div{
   display: block;
      width: 20%;
      height:20%;
-     top: 0%;
-     left: 0%;
 }
 
 div img {
@@ -80,6 +78,20 @@ p1   {color: rgb(238, 255, 0);}
 <form action="/map/trade" method="GET">
   <input type="submit" value="go to trade" />
 </form>
+<form action="/map/moveLeft" method="POST">
+  <input type="submit" value="left" />
+</form>
+<form action="/map/moveRight" method="POST">
+  <input type="submit" value="right" />
+</form>
+</form>
+<form action="/map/moveUp" method="POST">
+  <input type="submit" value="up" />
+</form>
+<form action="/map/moveDown" method="POST">
+  <input type="submit" value="down" />
+</form>
+
 
 <script>
   function getCookie(cname) {
@@ -98,7 +110,8 @@ p1   {color: rgb(238, 255, 0);}
                 return "";
             }
   document.getElementById("callSign").innerHTML = "Your call sign is: "+getCookie("callSign");
-  // document.getElementById("callSign").innerHTML = src="../static/img/ship.png";
+  document.getElementById("ship").style.top= Number(getCookie("yPos"))*20 + "%";  
+  document.getElementById("ship").style.left= Number(getCookie("xPos"))*20 + "%"; 
 </script>
 
 

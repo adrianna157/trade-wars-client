@@ -26,6 +26,10 @@ func main() {
 	mux.HandleFunc("/map", showMapScreen)
 	mux.HandleFunc("/map/trade", showTradeScreen)
 	mux.HandleFunc("/map/chat", showChatScreen)
+	mux.HandleFunc("/map/moveLeft", moveLeft)
+	mux.HandleFunc("/map/moveRight", moveRight)
+	mux.HandleFunc("/map/moveUp", moveUp)
+	mux.HandleFunc("/map/moveDown", moveDown)
 	// Configure websocket route
 	mux.HandleFunc("/map/chatroom", ws)
 	mux.Handle("/static/", http.StripPrefix("/static", fileServer))
