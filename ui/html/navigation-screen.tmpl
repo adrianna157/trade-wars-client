@@ -40,6 +40,7 @@ p1   {color: rgb(238, 255, 0);}
 <body background="https://wallpaperaccess.com/full/399198.jpg">
 
 <h1>Trade Wars</h1>
+<h1 id="callSign"></h1>
 <p align="middle"> Status: </p>
 
 <div>This is where the grid will go</div>
@@ -51,6 +52,25 @@ p1   {color: rgb(238, 255, 0);}
 </div>
 <a href="chat-screen.html"><button type="button">Go to Chat</button></a>
 <a href="trade-screen.html"><button type="button">Go to Trade</button></a>
+
+<script>
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+}
+document.getElementById("callSign").innerHTML = "Your call sign is: "+getCookie("callSign");
+</script>
 
 
 </body>
