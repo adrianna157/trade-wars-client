@@ -1,0 +1,138 @@
+{{template "base" .}}
+
+{{define "title"}}navigation Screen{{end}}
+{{define "main"}}
+
+<head>
+<style>
+  div{
+      position: relative;
+      margin: 20px;
+      border: 15px solid green;
+  } 
+  #starmap{
+    width: 500px;
+    height: 500px;
+   
+  }
+  #money {
+    width: 25px;
+    height: 25px;
+    background-color: #FFD7C2;
+    position: absolute;
+    padding: 35px;
+  }
+  #cargo {
+    width: 200px;
+    height: 200px;
+    background-color: #FFD7C2;
+    position: absolute;
+    padding: 100px;
+
+  }
+  #ship{
+    position: absolute;
+    display: block;
+      width: 20%;
+      height:20%;
+  }
+
+  div img {
+      position: relative;
+      display: block;
+      width: 100%;
+      height:100%;
+  }
+
+  h1   {color: rgb(37, 187, 23);}
+  p    {color: rgb(238, 255, 0);}
+  p   {color: rgb(238, 255, 0);}
+
+    /* Three image containers (use 25% for four, and 50% for two, etc) */
+  .row {
+    display: flex;
+    border: 0px;
+  }
+
+  .column {
+    flex: 33.33%;
+    padding: 5px;
+    border: 0px;
+  }
+
+</style>
+</head>
+<body background="https://wallpaperaccess.com/full/399198.jpg">
+
+<h1>Trade Wars</h1>
+<h1 id="callSign"></h1>
+<p align="middle"> Status: </p>
+
+<div class="row">
+  <div class="colum" id="starMap">
+    <img src="../static/img/starMap.jpg" alt="starMap"/>
+    <img id="ship" src="../static/img/ship.png" alt="ship"/>
+  </div>
+
+      <table style="width:100%" >
+          <tr>
+            <td></td>
+            <td>
+                <form action="/map/moveUp" method="POST">
+                  <input type="submit" value="up" />
+                </form>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <form action="/map/moveLeft" method="POST">
+               <input type="submit" value="left" />
+              </form>
+            </td>
+            <td>
+                <form action="/map/moveDown" method="POST">
+                  <input type="submit" value="down" />
+                </form>
+              </td>
+            <td>
+              <form action="/map/moveRight" method="POST">
+                <input type="submit" value="right" />
+              </form>
+            </td>
+          </tr>
+        </table>
+</div>
+
+
+<form action="/map/chat" method="GET">
+  <input type="submit" value="go to chat" />
+</form>
+<form action="/map/trade" method="GET">
+  <input type="submit" value="go to trade" />
+</form>
+
+<script>
+  function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for(var i = 0; i <ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+  document.getElementById("callSign").innerHTML = "Your call sign is: "+getCookie("callSign");
+  document.getElementById("ship").style.top= Number(getCookie("yPos"))*20 + "%";  
+  document.getElementById("ship").style.left= Number(getCookie("xPos"))*20 + "%"; 
+</script>
+
+
+</body>
+{{end}}
