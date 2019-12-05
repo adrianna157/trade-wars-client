@@ -48,9 +48,10 @@ func (ship Ship) GetCargoString() (info string) {
 
 func initCargo() []Cargo {
 	return []Cargo{
-		Cargo{Name: "cheese", Price: 4},
-		Cargo{Name: "foo", Price: 4},
-		Cargo{Name: "water", Price: 4},
-		Cargo{Name: "tofu", Price: 4},
+		Cargo{Name: "cheese", Price: 2},
+		Cargo{Name: "foo", Price: 0},
+		Cargo{Name: "water", Price: 9},
+		Cargo{Name: "tofu", Price: 3},
+		Cargo{Name: "soylent", Price: 10},
 	}
 }

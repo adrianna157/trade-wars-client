@@ -4,11 +4,9 @@
 {{define "main"}}
 <head>
     <style>
-      div{
-        position: relative;
-        margin: 20px;
-        border: 15px solid green;
-        } 
+      #shop{
+          /* background-color: bisque; */
+      }
     </style>
 </head>
 
@@ -21,11 +19,13 @@
     </div>
 
     <div class="row">
-            <div class="column">
-                <h2>Space Station stuff</h2>
-                <p>chicken : $4 <button type="button">Buy</button></p>
-                <p>pizza : $13 <button type="button">Buy</button></p>
-                <p>hotdog : $2 <button type="button">Buy</button></p>
+            <div class="column" id = "shop">
+                <div class="row">
+                    <h1>$0 Foo</h1>
+                    <form action="/addCargo" method="POST">
+                        <input type="submit" value="Buy" />
+                    </form>
+                </div>
             </div>
             <div class="column">
                 <h2>Your stuff</h2>

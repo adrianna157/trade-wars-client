@@ -30,6 +30,7 @@ func main() {
 	mux.HandleFunc("/map/moveRight", moveRight)
 	mux.HandleFunc("/map/moveUp", moveUp)
 	mux.HandleFunc("/map/moveDown", moveDown)
+	mux.HandleFunc("/addCargo", addCargo)
 	// Configure websocket route
 	fs := http.FileServer(http.Dir("../pkg"))
 	http.Handle("/", fs)
