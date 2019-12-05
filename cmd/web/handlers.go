@@ -45,6 +45,7 @@ func players(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		callSign := r.FormValue("callSign")
+		addship(callSign)
 		Callcookie := http.Cookie{
 			Name:    "callSign",
 			Value:   callSign,
@@ -63,9 +64,17 @@ func players(w http.ResponseWriter, r *http.Request) {
 			Expires: time.Now().AddDate(0, 0, 1),
 			Path:    "/map",
 		}
+		cargoCookie := http.Cookie{
+			Name:    "cargo",
+			Value:   ships[0].GetCargoString(),
+			Expires: time.Now().AddDate(0, 0, 1),
+			Path:    "/map",
+		}
+		//updateCargoCookie(w, r, callSign)
 		http.SetCookie(w, &Callcookie)
 		http.SetCookie(w, &XposCookie)
 		http.SetCookie(w, &YposCookie)
+		http.SetCookie(w, &cargoCookie)
 		http.Redirect(w, r, "/map", http.StatusSeeOther)
 		fmt.Fprintf(w, "Call sign = %s\n", callSign)
 
