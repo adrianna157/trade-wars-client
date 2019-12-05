@@ -31,6 +31,9 @@ func main() {
 	mux.HandleFunc("/map/moveUp", moveUp)
 	mux.HandleFunc("/map/moveDown", moveDown)
 	// Configure websocket route
+	fs := http.FileServer(http.Dir("../pkg"))
+	http.Handle("/", fs)
+	http.HandleFunc("/map/chatroom/ws", handleConnections)
 	mux.HandleFunc("/map/chatroom", ws)
 	mux.Handle("/static/", http.StripPrefix("/static", fileServer))
 
