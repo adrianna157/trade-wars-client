@@ -66,7 +66,7 @@ func players(w http.ResponseWriter, r *http.Request) {
 		}
 		cargoCookie := http.Cookie{
 			Name:    "cargo",
-			Value:   ships[0].GetCargoString(),
+			Value:   getShipCargoString(callSign),
 			Expires: time.Now().AddDate(0, 0, 1),
 			Path:    "/map",
 		}

@@ -23,12 +23,8 @@
     padding: 35px;
   }
   #cargo {
-    width: 200px;
-    height: 200px;
-    background-color: #FFD7C2;
-    position: absolute;
-    padding: 100px;
-
+    background-color: white;
+    color: rgb(21, 255, 0);
   }
   #ship{
     position: absolute;
@@ -45,9 +41,8 @@
   }
 
   h1   {color: rgb(37, 187, 23);}
-  p    {color: rgb(238, 255, 0);}
-  p   {color: rgb(238, 255, 0);}
-
+  p    {color: rgb(21, 255, 0);}
+  
     /* Three image containers (use 25% for four, and 50% for two, etc) */
   .row {
     display: flex;
@@ -73,7 +68,8 @@
     <img src="../static/img/starMap.jpg" alt="starMap"/>
     <img id="ship" src="../static/img/ship.png" alt="ship"/>
   </div>
-
+  
+  <div class="colum">
       <table style="width:100%" >
           <tr>
             <td></td>
@@ -102,7 +98,12 @@
             </td>
           </tr>
         </table>
+
+        <p id="cargo"></p>
+      </div>
+    
 </div>
+
 
 
 <form action="/map/chatroom" method="GET">
@@ -131,6 +132,8 @@
   document.getElementById("callSign").innerHTML = "Your call sign is: "+getCookie("callSign");
   document.getElementById("ship").style.top= Number(getCookie("yPos"))*20 + "%";  
   document.getElementById("ship").style.left= Number(getCookie("xPos"))*20 + "%"; 
+  document.getElementById("cargo").innerHTML = getCookie("cargo").replace(/['"]+/g, '') ; 
+
 </script>
 
 

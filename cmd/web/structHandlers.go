@@ -20,10 +20,15 @@ func updateCargoCookie(w http.ResponseWriter, r *http.Request, shipname string) 
 		http.Error(w, "invaild yPos cookie", 500)
 		return
 	}
+	cargoCookie.Value = getShipCargoString(shipname)
+	http.SetCookie(w, cargoCookie)
+}
+
+func getShipCargoString(shipname string) string {
 	for _, ship := range ships {
 		if shipname == ship.Name {
-			cargoCookie.Value = ship.GetCargoString()
-			http.SetCookie(w, cargoCookie)
+			return ship.GetCargoString()
 		}
 	}
+	return ""
 }

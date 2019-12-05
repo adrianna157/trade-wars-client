@@ -35,17 +35,13 @@ func InitShip(name string) Ship {
 	}
 }
 
-func (ship Ship) GetInfo() (info string) {
-	info = ship.Name + "\nCargo:\n"
-	for _, cargo := range ship.Cargo {
-		info += cargo.GetInfo() + "\n"
-	}
-	return
+func (ship Ship) GetInfo() string {
+	return ship.Name + "<br>" + ship.GetCargoString()
 }
 func (ship Ship) GetCargoString() (info string) {
-	info = "Cargo:\n"
+	info = "Cargo:<br>"
 	for _, cargo := range ship.Cargo {
-		info += cargo.GetInfo() + "\n"
+		info += cargo.GetInfo() + "<br>"
 	}
 	return
 }
